@@ -12,8 +12,10 @@ app.get('/users', (req, res) => {
 });
 
 function loggingMiddleware(req, res, next) {
-  console.log('Inside loggingMiddleware');
+  console.log('${new Date().toISOString()}: ${req.originalUrl}');
   next();
 }
+
+
 
 app.listen(3000, () => console.log('Server Started'));
