@@ -18,10 +18,10 @@ app.get('/', (req, res) => {
       console.log('Status:', response.statusCode);
       console.log('Headers:', JSON.stringify(response.headers));
       console.log('Response:', body);
+      wxdata = JSON.parse(body);
+      res.render('index', { wxdata });
     }
   );
-  wxdata = JSON.parse(body);
-  res.send('Response', { wxdata });
 });
 
 const userRouter = require('./routes/users');
