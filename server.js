@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
       console.log('Status:', response.statusCode);
       console.log('Headers:', JSON.stringify(response.headers));
       console.log('Response:', body);
-      wxdata = JSON.parse(body);
+      let wxdata = JSON.parse(body);
       res.render('index', { wxdata });
     }
   );
