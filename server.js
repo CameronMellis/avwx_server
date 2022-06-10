@@ -61,6 +61,6 @@ getData();
 
 const userRouter = require('./routes/users');
 
-app.use('/users', userRouter);
+app.use('/station', userRouter);
 
 app.listen(3000);
