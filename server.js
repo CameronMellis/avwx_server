@@ -5,9 +5,9 @@ const request = require('request');
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
-var requestAsync = function (url) {
+let requestAsync = function (url) {
   return new Promise((resolve, reject) => {
-    var req = request(url, headers, (err, response, body) => {
+    let req = request(url, headers, (err, response, body) => {
       if (err) return reject(err, response, body);
       resolve(JSON.parse(body));
     });
@@ -47,7 +47,7 @@ const headers = {
   },
 };
 
-var getData = async function () {
+let getData = async function () {
   //transform requests into Promises, await all
   try {
     var data = await Promise.all(urls.map(requestAsync));
