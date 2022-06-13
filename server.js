@@ -59,7 +59,7 @@ let getData = async function () {
 
 getData();
 
-const userRouter = require('./routes/users');
+const userRouter = require('./routes/stations');
 
 app.use('/station', userRouter);
 
