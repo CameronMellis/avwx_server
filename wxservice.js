@@ -42,7 +42,7 @@ const headers = {
   },
 };
 
-var data = { data: 'pls work' };
+var data = { data: ""  };
 
 let getData = async function () {
   //transform requests into Promises, await all
