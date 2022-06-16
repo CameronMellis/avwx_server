@@ -34,6 +34,40 @@ const urls = [
   'https://avwx.rest/api/taf/CYNA',
   'https://avwx.rest/api/metar/CYKL',
   'https://avwx.rest/api/taf/CYKL',
+  'https://avwx.rest/api/metar/CYUL',
+  'https://avwx.rest/api/taf/CYUL',
+  'https://avwx.rest/api/metar/CYQB',
+  'https://avwx.rest/api/taf/CYQB',
+  'https://avwx.rest/api/metar/CYHU',
+  'https://avwx.rest/api/taf/CYHU',
+  'https://avwx.rest/api/metar/CYRQ',
+  'https://avwx.rest/api/taf/CYRQ',
+  'https://avwx.rest/api/metar/CYMX',
+  'https://avwx.rest/api/taf/CYMX',
+  'https://avwx.rest/api/metar/CYRQ',
+  'https://avwx.rest/api/taf/CYRQ',
+  'https://avwx.rest/api/metar/CYOW',
+  'https://avwx.rest/api/taf/CYOW',
+  'https://avwx.rest/api/metar/CYND',
+  'https://avwx.rest/api/taf/CYND',
+  'https://avwx.rest/api/metar/CYYZ',
+  'https://avwx.rest/api/taf/CYYZ',
+  'https://avwx.rest/api/metar/CYVO',
+  'https://avwx.rest/api/taf/CYVO',
+  'https://avwx.rest/api/metar/CYUY',
+  'https://avwx.rest/api/taf/CYUY',
+  'https://avwx.rest/api/metar/CYBG',
+  'https://avwx.rest/api/taf/CYBG',
+  'https://avwx.rest/api/metar/CYBC',
+  'https://avwx.rest/api/taf/CYBC',
+  'https://avwx.rest/api/metar/CYGR',
+  'https://avwx.rest/api/taf/CYGR',
+  'https://avwx.rest/api/metar/CYGP',
+  'https://avwx.rest/api/taf/CYGP',
+  'https://avwx.rest/api/metar/CYGV',
+  'https://avwx.rest/api/taf/CYGV',
+  'https://avwx.rest/api/metar/CYZV',
+  'https://avwx.rest/api/taf/CYZV',
 ];
 
 const headers = {
@@ -42,7 +76,7 @@ const headers = {
   },
 };
 
-var data = { data: ""  };
+var data = { data: '' };
 
 let getData = async function () {
   //transform requests into Promises, await all
