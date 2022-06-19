@@ -10,3 +10,7 @@ app.use(userRouter);
 wxservice.getData().then(() => {
   app.listen(3000);
 });
+
+cron.schedule('* * * * *', function () {
+  console.log('running a task every minute');
+});
