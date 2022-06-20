@@ -11,6 +11,14 @@ wxservice.getData().then(() => {
   app.listen(3000);
 });
 
-cron.schedule('* * * * *', function () {
-  console.log('running a task every minute');
-});
+cron.schedule(
+  '0 * * * *',
+  () => {
+    wxservice.getData();
+    console.log('getting new weather every hour');
+  },
+  {
+    scheduled: true,
+    timezone: 'UTC',
+  }
+);
