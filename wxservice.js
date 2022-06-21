@@ -68,6 +68,22 @@ const urls = [
   'https://avwx.rest/api/taf/CYGV',
   'https://avwx.rest/api/metar/CYZV',
   'https://avwx.rest/api/taf/CYZV',
+  'https://avwx.rest/api/metar/CYHZ',
+  'https://avwx.rest/api/taf/CYHZ',
+  'https://avwx.rest/api/metar/CYQM',
+  'https://avwx.rest/api/taf/CYQM',
+  'https://avwx.rest/api/metar/CYYG',
+  'https://avwx.rest/api/taf/CYYG',
+  'https://avwx.rest/api/metar/CYFC',
+  'https://avwx.rest/api/taf/CYFC',
+  'https://avwx.rest/api/metar/CZBF',
+  'https://avwx.rest/api/taf/CZBF',
+  'https://avwx.rest/api/metar/CYQY',
+  'https://avwx.rest/api/taf/CYQY',
+  'https://avwx.rest/api/metar/CYSJ',
+  'https://avwx.rest/api/taf/CYSJ',
+  'https://avwx.rest/api/metar/CYQI',
+  'https://avwx.rest/api/taf/CYQI',
 ];
 
 const headers = {
