@@ -10,7 +10,7 @@ let requestAsync = function (url) {
 };
 
 const urls = [
-  'https://avwx.rest/api/metar/CYYT',
+  'https://avwx.rest/api/metar/multi/CYYT,CYDF',
   'https://avwx.rest/api/taf/CYYT',
 ];
 
