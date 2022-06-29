@@ -9,8 +9,7 @@ let requestAsync = function (url) {
   });
 };
 
-// cron currently updating wxdata every 30 mins (28 possible) 
-// if 10 req api works then wxdata can be updated every 3 (2.8) minutes 
+// cron currently updating wxdata every 30 mins (28 possible)
 
 const urls = [
   'https://avwx.rest/api/metar/CYYT',
