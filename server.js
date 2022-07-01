@@ -12,10 +12,10 @@ wxservice.getData().then(() => {
 });
 
 cron.schedule(
-  '*/30 * * * *',
+  '0 * * * *',
   () => {
     wxservice.getData();
-    console.log('getting new weather every half hour');
+    console.log('getting new weather every hour');
   },
   {
     scheduled: true,
