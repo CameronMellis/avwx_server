@@ -9,7 +9,7 @@ let requestAsync = function (url) {
   });
 };
 
-// cron currently updating wxdata every 30 mins (28 possible)
+// cron currently updating wxdata every hour, extra requests saved for manual updating 
 
 const urls = [
   'https://avwx.rest/api/metar/CYYT',
