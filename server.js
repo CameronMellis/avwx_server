@@ -11,6 +11,8 @@ wxservice.getData().then(() => {
   app.listen(3000);
 });
 
+// cron currently updating wxdata every hour, extra requests saved for manual updating 
+
 cron.schedule(
   '0 * * * *',
   () => {
