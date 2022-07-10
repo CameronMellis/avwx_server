@@ -103,7 +103,7 @@ let getData = async function () {
   } catch (err) {
     console.error(err);
   }
-  console.log(data);
+ // console.log(data);
 };
 
 module.exports = { wxdata: data, getData: getData };
