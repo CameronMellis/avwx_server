@@ -25,7 +25,7 @@ const credentials = {
 
 // Connect with a client.
 
-async function clientDemo() {
+async function clientConnect() {
   const client = new Client(credentials);
   await client.connect();
   const now = await client.query('SELECT * FROM test_1 WHERE myid = $1',[3]);
@@ -40,7 +40,7 @@ async function clientDemo() {
   // const poolResult = await poolDemo();
   // console.log(poolResult.rows);
 
-  const clientResult = await clientDemo();
+  const clientResult = await clientConnect();
   console.log(clientResult.rows);
 })();
 
