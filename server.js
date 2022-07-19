@@ -12,23 +12,10 @@ const credentials = {
   port: 5432,
 };
 
-// Connect with a connection pool.
-
-// async function poolDemo() {
-//   const pool = new Pool(credentials);
-//   await pool.connect();
-//   const now = await pool.query('SELECT * FROM test_1');
-//   await pool.end();
-
-//   return now;
-// }
-
-// Connect with a client.
-
 async function clientConnect() {
   const client = new Client(credentials);
   await client.connect();
-  const now = await client.query('SELECT * FROM test_1 WHERE myid = $1',[3]);
+  const now = await client.query('SELECT * FROM test_1 WHERE myid = $1', [3]);
   await client.end();
 
   return now;
@@ -37,9 +24,6 @@ async function clientConnect() {
 // Use a self-calling function so we can use async / await.
 
 (async () => {
-  // const poolResult = await poolDemo();
-  // console.log(poolResult.rows);
-
   const clientResult = await clientConnect();
   console.log(clientResult.rows);
 })();
