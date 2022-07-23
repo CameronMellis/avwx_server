@@ -3,7 +3,7 @@ const app = express();
 const wxservice = require('./wxservice');
 const cron = require('node-cron');
 const userRouter = require('./routes/stations');
-const { Pool, Client } = require('pg');
+const { Client } = require('pg');
 const credentials = {
   user: 'admin',
   host: 'localhost',
