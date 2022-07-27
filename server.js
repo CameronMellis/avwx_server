@@ -4,12 +4,13 @@ const wxservice = require('./wxservice');
 const cron = require('node-cron');
 const userRouter = require('./routes/stations');
 const { Client } = require('pg');
+const dotenv = require('dotenv').config()
 const credentials = {
-  user: 'admin',
-  host: 'localhost',
-  database: 'avwxdb',
-  password: 'getcoding',
-  port: 5432,
+  user: process.env.USER,
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  password: process.env.PASSWORD,
+  port: process.env.PORT,
 };
 
 async function clientConnect() {
