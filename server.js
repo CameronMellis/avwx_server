@@ -15,7 +15,7 @@ const credentials = {
 async function clientConnect() {
   const client = new Client(credentials);
   await client.connect();
-  const now = await client.query('SELECT * FROM test_1 WHERE myid = $1', [3]);
+  const now = await client.query('SELECT * FROM test_1 WHERE myid = $1', [1]);
   await client.end();
 
   return now;
