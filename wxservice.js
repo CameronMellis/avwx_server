@@ -9,7 +9,7 @@ let requestAsync = function (url) {
   });
 };
 
-// cron currently updating wxdata every hour, extra requests saved for manual updating 
+// cron currently updating wxdata every hour, extra requests saved for manual updating
 
 const urls = [
   'https://avwx.rest/api/metar/CYYT',
@@ -62,6 +62,8 @@ const urls = [
   'https://avwx.rest/api/taf/CYBG',
   'https://avwx.rest/api/metar/CYBC',
   'https://avwx.rest/api/taf/CYBC',
+  'https://avwx.rest/api/metar/CYYY',
+  'https://avwx.rest/api/taf/CYYY',
   'https://avwx.rest/api/metar/CYGR',
   'https://avwx.rest/api/taf/CYGR',
   'https://avwx.rest/api/metar/CYGP',
@@ -103,7 +105,7 @@ let getData = async function () {
   } catch (err) {
     console.error(err);
   }
- // console.log(data);
+  // console.log(data);
 };
 
 module.exports = { wxdata: data, getData: getData };
