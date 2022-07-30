@@ -6,7 +6,7 @@ const userRouter = require('./routes/stations');
 const { Client } = require('pg');
 const dotenv = require('dotenv');
 dotenv.config;
-const credentials = {
+const config = {
   user: process.env.USER,
   host: process.env.HOST,
   database: process.env.DATABASE,
@@ -15,11 +15,10 @@ const credentials = {
 };
 
 async function clientConnect() {
-  const client = new Client(credentials);
+  const client = new Client(config);
   await client.connect();
-  const now = await client.query('SELECT * FROM test_1 WHERE myid = $1', [2]);
+  const now = await client.query("");
   await client.end();
-
   return now;
 }
 
