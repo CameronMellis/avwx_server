@@ -4,8 +4,7 @@ const wxservice = require('./wxservice');
 const cron = require('node-cron');
 const userRouter = require('./routes/stations');
 const { Client } = require('pg');
-const dotenv = require('dotenv');
-dotenv.config;
+require('dotenv').config();
 const config = {
   user: process.env.USER,
   host: process.env.HOST,
