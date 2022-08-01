@@ -7,6 +7,8 @@ router.get('/weather', (req, res) => {
   res.send(params);
 });
 
+
+
 module.exports = router;
 
 // Save for later: for getting wxdata in json

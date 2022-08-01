@@ -30,23 +30,51 @@ async function clientConnect() {
 })();
 
 app.set('view-engine', 'ejs');
+app.use(express.urlencoded({ extended: false }))
 
 app.use(userRouter);
 
-wxservice.getData().then(() => {
-  app.listen(3000);
+//Disabled for testing purposes, otherwise rate limited by API
+
+// wxservice.getData().then(() => {
+//   app.listen(3000);
+// });
+
+app.listen(3000);
+
+app.get('/', (req, res) => {
+  res.render('index.ejs', { name: 'Cam' });
 });
+
+app.get('/login', (req, res) => {
+  res.render('login.ejs');
+});
+
+app.post('/login', (req, res) => {
+
+});
+
+app.get('/register', (req, res) => {
+  res.render('register.ejs');
+});
+
+app.post('/register', (req, res) => {
+
+});
+
 
 // cron currently updating wxdata every hour, extra requests saved for manual updating
 
-cron.schedule(
-  '0 * * * *',
-  () => {
-    wxservice.getData();
-    console.log('getting new weather every hour');
-  },
-  {
-    scheduled: true,
-    timezone: 'UTC',
-  }
-);
+//Disabled for testing purposes
+
+// cron.schedule(
+//   '0 * * * *',
+//   () => {
+//     wxservice.getData();
+//     console.log('getting new weather every hour');
+//   },
+//   {
+//     scheduled: true,
+//     timezone: 'UTC',
+//   }
+// );
