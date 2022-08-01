@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const wxservice = require('./wxservice');
 const cron = require('node-cron');
-const userRouter = require('./routes/stations');
+const userRouter = require('./routes/server_routes');
 const { Client } = require('pg');
 require('dotenv').config();
 const config = {
@@ -28,6 +28,8 @@ async function clientConnect() {
   const clientResult = await clientConnect();
   console.log(clientResult.rows);
 })();
+
+app.set('view-engine', 'ejs');
 
 app.use(userRouter);
 
