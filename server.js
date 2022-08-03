@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const wxservice = require('./wxservice');
 const cron = require('node-cron');
 const userRouter = require('./routes/server_routes');
@@ -29,13 +30,12 @@ async function clientConnect() {
   console.log(clientResult.rows);
 })();
 
-app.set('view-engine', 'ejs');
-app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 app.use(userRouter);
 
 wxservice.getData().then(() => {
-  app.listen(3000);
+  app.listen(3001);
 });
 
 // cron currently updating wxdata every hour, extra requests saved for manual updating

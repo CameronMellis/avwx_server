@@ -108,4 +108,4 @@ let getData = async function () {
   // console.log(data);
 };
 
-module.exports = { wxdata: data, getData: getData };
+module.exports = { wxdata: data, getData: getData, requestAsync: requestAsync };
