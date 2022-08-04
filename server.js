@@ -30,6 +30,8 @@ async function clientConnect() {
   console.log(clientResult.rows);
 })();
 
+//Sketchy work around for dev build, fix for production
+
 app.use(cors());
 
 app.use(userRouter);

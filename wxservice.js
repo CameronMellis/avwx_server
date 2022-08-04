@@ -103,6 +103,7 @@ let getData = async function () {
   try {
     data.data = await Promise.all(urls.map(requestAsync));
   } catch (err) {
+    console.log(data);
     console.error(err);
   }
   // console.log(data);
