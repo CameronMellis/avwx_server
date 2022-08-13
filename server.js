@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const wxservice = require('./wxservice');
 const cron = require('node-cron');
+const morgan = require('morgan');
 const userRouter = require('./routes/server_routes');
 const { Client } = require('pg');
 require('dotenv').config();
@@ -33,6 +34,9 @@ async function clientConnect() {
 //Sketchy work around for dev build, fix for production
 
 app.use(cors());
+
+// adding morgan to log HTTP requests
+app.use(morgan('combined'));
 
 app.use(userRouter);
 
