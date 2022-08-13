@@ -8,4 +8,20 @@ router.get('/weather', (req, res) => {
   wxservice.requestAsync(url).then((response) => res.send(response));
 });
 
+router.post('/signin', (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  res.send('You are signed in');
+  console.log(email, password);
+});
+
+router.post('/signup', (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  res.send('You are signed up');
+  console.log(email, password);
+});
+
 module.exports = router;
