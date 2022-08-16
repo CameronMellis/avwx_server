@@ -6,31 +6,6 @@ const cron = require('node-cron');
 const morgan = require('morgan');
 const userRouter = require('./routes/server_routes');
 const bodyParser = require('body-parser');
-// const { Client } = require('pg');
-// require('dotenv').config();
-// const config = {
-//   user: process.env.USER,
-//   host: process.env.HOST,
-//   database: process.env.DATABASE,
-//   password: process.env.PASSWORD,
-//   port: process.env.PORT,
-// };
-
-// async function clientConnect() {
-//   const client = new Client(config);
-//   await client.connect();
-//   const now = await client.query('');
-//   await client.end();
-
-//   return now;
-// }
-
-// Use a self-calling function so we can use async / await.
-
-// (async () => {
-//   const clientResult = await clientConnect();
-//   console.log(clientResult.rows);
-// })();
 
 //Sketchy work around for dev build, fix for production
 
