@@ -3,7 +3,6 @@ const app = express();
 const cors = require('cors');
 const wxservice = require('./wxservice');
 const cron = require('node-cron');
-const morgan = require('morgan');
 const userRouter = require('./routes/server_routes');
 const bodyParser = require('body-parser');
 
@@ -14,9 +13,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
-
-// adding morgan to log HTTP requests
-app.use(morgan('combined'));
 
 app.use(userRouter);
 
