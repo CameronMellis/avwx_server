@@ -14,7 +14,7 @@ router.post('/signin', async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const client = await pool.getConnection();
-  const response = await client.query('');
+  const response = await client.query('SELECT password FROM users WHERE email = $1', [email]);
 
   res.send('You are signed in');
   console.log(response);
