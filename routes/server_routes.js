@@ -14,13 +14,22 @@ router.post('/signin', async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const client = await pool.getConnection();
-  const response = await client.query('SELECT password FROM users WHERE email = $1', [email]);
-  const salt =  await JSON.parse(response[0].salt);
-  console.log(salt);
+  const response = await client.query(
+    'SELECT password FROM users WHERE email = $1',
+    [email]
+  );
+  let result = response.rows[0];
+  let parsed = JSON.parse(result.password);
+  let salt = parsed.salt;
+  let hashed = parsed.password;
 
+  let isPasswordMatch = saltHash.verifySaltHash(salt, hashed, password);
+  if (isPasswordMatch === false) {
+    res.status(401).send('Invalid credentials');
+  } else {
+    res.status(200).send('Success');
+  }
 
-  res.send('You are signed in');
-});
 
 router.post('/signup', async (req, res) => {
   const email = req.body.email;
@@ -32,8 +41,7 @@ router.post('/signup', async (req, res) => {
     [email, hashPassword]
   );
 
-  res.send('You are signed up');
-  console.log(hashPassword);
+  res.redirect('/signin');
 });
 
 module.exports = router;
