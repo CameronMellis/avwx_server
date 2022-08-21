@@ -15,9 +15,11 @@ router.post('/signin', async (req, res) => {
   const password = req.body.password;
   const client = await pool.getConnection();
   const response = await client.query('SELECT password FROM users WHERE email = $1', [email]);
+  const salt =  await JSON.parse(response[0].salt);
+  console.log(salt);
+
 
   res.send('You are signed in');
-  console.log(response);
 });
 
 router.post('/signup', async (req, res) => {
