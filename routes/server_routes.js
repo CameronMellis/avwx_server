@@ -29,7 +29,7 @@ router.post('/signin', async (req, res) => {
   } else {
     res.status(200).send('Success');
   }
-
+});
 
 router.post('/signup', async (req, res) => {
   const email = req.body.email;
