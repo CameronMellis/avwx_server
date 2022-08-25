@@ -3,6 +3,7 @@ const wxservice = require('../wxservice');
 const router = express.Router();
 const pool = require('../db_pools');
 const saltHash = require('password-salt-and-hash');
+const userExists = require('../userExists');
 
 router.get('/weather', (req, res) => {
   console.log(req.query);
@@ -36,12 +37,15 @@ router.post('/signup', async (req, res) => {
   const password = req.body.password;
   const hashPassword = saltHash.generateSaltHash(password);
   const client = await pool.getConnection();
-  const response = await client.query(
-    'INSERT INTO users (email, password) VALUES ($1, $2)',
-    [email, hashPassword]
-  );
-
-  res.redirect('/signin');
+  if (await userExists(client, email)) {
+    res.status(400).send('User already exists!');
+  } else {
+    const response = await client.query(
+      'INSERT INTO users (email, password) VALUES ($1, $2)',
+      [email, hashPassword]
+    );
+    res.status(200).send('Success');
+  }
 });
 
 module.exports = router;
