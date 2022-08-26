@@ -26,7 +26,7 @@ router.post('/signin', async (req, res) => {
 
   let isPasswordMatch = saltHash.verifySaltHash(salt, hashed, password);
   if (isPasswordMatch === false) {
-    res.status(401).send('Invalid credentials');
+    res.status(400).send('Invalid credentials');
   } else {
     res.status(200).send('Success');
   }
