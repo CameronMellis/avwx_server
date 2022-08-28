@@ -3,7 +3,8 @@ const wxservice = require('../wxservice');
 const router = express.Router();
 const pool = require('../db_pools');
 const saltHash = require('password-salt-and-hash');
-const userExists = require('../userExists');
+const userExists = require('../user_exists');
+const generateAccessToken = require('../generate_token');
 
 router.get('/weather', (req, res) => {
   console.log(req.query);
@@ -15,6 +16,7 @@ router.post('/signin', async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const client = await pool.getConnection();
+  const token = generateAccessToken(email);
   const response = await client.query(
     'SELECT password FROM users WHERE email = $1',
     [email]
@@ -29,6 +31,10 @@ router.post('/signin', async (req, res) => {
     res.status(400).send('Invalid credentials');
   } else {
     res.status(200).send('Success');
+    res.json({
+      token: `Bearer ${token}`,
+    });
+    console.log(token);
   }
 });
 
