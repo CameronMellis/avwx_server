@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 function validateToken(req, res, next) {
     const authHeader = req.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
+    console.log(authHeader, token, req.headers);
   
     if (token == null) return res.sendStatus(401);
   
@@ -14,4 +15,4 @@ function validateToken(req, res, next) {
     });
   }
 
-    module.exports = { validateToken };
+    module.exports = validateToken;

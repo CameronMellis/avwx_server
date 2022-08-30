@@ -5,8 +5,9 @@ const pool = require('../db_pools');
 const saltHash = require('password-salt-and-hash');
 const userExists = require('../user_exists');
 const generateAccessToken = require('../generate_token');
+const validateToken = require('../validate_token');
 
-router.get('/weather', (req, res) => {
+router.get('/weather', validateToken,(req, res) => {
   console.log(req.query);
   const url = `https://avwx.rest/api/${req.query.type}/${req.query.ident}`;
   wxservice.requestAsync(url).then((response) => res.send(response));
@@ -30,8 +31,7 @@ router.post('/signin', async (req, res) => {
   if (isPasswordMatch === false) {
     res.status(400).send('Invalid credentials');
   } else {
-    res.status(200).send('Success');
-    res.json({
+    res.status(200).json({
       token: `Bearer ${token}`,
     });
     console.log(token);
