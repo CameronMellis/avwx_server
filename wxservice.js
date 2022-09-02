@@ -1,5 +1,7 @@
 const request = require('request');
 
+// Function to get weather data from AVWX API
+
 let requestAsync = function (url) {
   return new Promise((resolve, reject) => {
     let req = request(url, headers, (err, response, body) => {
@@ -103,10 +105,8 @@ let getData = async function () {
   try {
     data.data = await Promise.all(urls.map(requestAsync));
   } catch (err) {
-    console.log(data);
     console.error(err);
   }
-  // console.log(data);
 };
 
 module.exports = { wxdata: data, getData: getData, requestAsync: requestAsync };

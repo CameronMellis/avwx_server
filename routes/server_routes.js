@@ -7,12 +7,13 @@ const userExists = require('../user_exists');
 const generateAccessToken = require('../generate_token');
 const validateToken = require('../validate_token');
 
-router.get('/weather', validateToken,(req, res) => {
-  console.log(req.query);
+// Get weather data based on station location from frontend props
+router.get('/weather', validateToken, (req, res) => {
   const url = `https://avwx.rest/api/${req.query.type}/${req.query.ident}`;
   wxservice.requestAsync(url).then((response) => res.send(response));
 });
 
+// Sign in page for user, verifies user exists and password is correct and assigns JWT access token to user
 router.post('/signin', async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
@@ -34,10 +35,10 @@ router.post('/signin', async (req, res) => {
     res.status(200).json({
       token: `Bearer ${token}`,
     });
-    console.log(token);
   }
 });
 
+// Sign up page for user, verifies user does not already exist and creates user in database, salt and hashed password is stored in database
 router.post('/signup', async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;

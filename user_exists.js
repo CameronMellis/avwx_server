@@ -1,3 +1,5 @@
+// Check if user exists in database
+
 async function userExists(client, email) {
   const response = await client.query(
     'SELECT count(*) FROM users WHERE email = $1',
@@ -7,9 +9,9 @@ async function userExists(client, email) {
 
   if (count === 1) {
     return true;
-    } else {
-        return false;
-    }
+  } else {
+    return false;
   }
+}
 
 module.exports = userExists;
