@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 // Validate JWT access token
 
 function validateToken(req, res, next) {
+  console.log(req.headers);
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
 
