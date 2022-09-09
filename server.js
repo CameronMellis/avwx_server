@@ -18,6 +18,9 @@ app.use(bodyParser.json());
 
 app.use(userRouter);
 
+// add middleware for static server
+// app.use(express.static("public"));
+
 https
   .createServer(
     // Provide the private and public key to the server by reading each
