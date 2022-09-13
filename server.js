@@ -5,6 +5,7 @@ const wxservice = require('./wxservice');
 const cron = require('node-cron');
 const userRouter = require('./routes/server_routes');
 const bodyParser = require('body-parser');
+const path = require('path');
 const https = require('https');
 const fs = require('fs');
 
@@ -19,7 +20,9 @@ app.use(bodyParser.json());
 app.use(userRouter);
 
 // add middleware for static server
-// app.use(express.static("public"));
+
+app.use(express.static(path.join(__dirname, 'dist')));
+console.log(path.join(__dirname, 'dist'));
 
 https
   .createServer(
