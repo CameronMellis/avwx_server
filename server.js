@@ -6,7 +6,7 @@ const cron = require('node-cron');
 const userRouter = require('./routes/server_routes');
 const bodyParser = require('body-parser');
 const path = require('path');
-const https = require('https');
+// const https = require('https');
 const fs = require('fs');
 
 //Sketchy work around for dev build, fix for production
@@ -21,22 +21,30 @@ app.use(userRouter);
 
 // add middleware for static server
 
-app.use(express.static(path.join(__dirname, 'dist')));
-console.log(path.join(__dirname, 'dist'));
+// app.use(express.static(path.join(__dirname, 'dist')));
+// console.log(path.join(__dirname, 'dist'));
 
-https
-  .createServer(
-    // Provide the private and public key to the server by reading each
-    // file's content with the readFileSync() method.
-    {
-      key: fs.readFileSync('key.pem'),
-      cert: fs.readFileSync('cert.pem'),
-    },
-    app
-  )
-  .listen(3001, () => {
-    wxservice.getData();
-  });
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+
+// https
+//   .createServer(
+//     // Provide the private and public key to the server by reading each
+//     // file's content with the readFileSync() method.
+//     {
+//       key: fs.readFileSync('key.pem'),
+//       cert: fs.readFileSync('cert.pem'),
+//     },
+//     app
+//   )
+//   .listen(3001, () => {
+//     wxservice.getData();
+//   });
 
 // cron currently updating wxdata every hour, extra requests saved for manual updating
 

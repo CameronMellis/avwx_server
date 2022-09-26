@@ -14,7 +14,7 @@ router.get('/weather', validateToken, (req, res) => {
 });
 
 // Sign in page for user, verifies user exists and password is correct and assigns JWT access token to user
-router.post('/signin', async (req, res) => {
+router.post('/api/signin', async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const client = await pool.getConnection();
@@ -39,7 +39,7 @@ router.post('/signin', async (req, res) => {
 });
 
 // Sign up page for user, verifies user does not already exist and creates user in database, salt and hashed password is stored in database
-router.post('/signup', async (req, res) => {
+router.post('/api/signup', async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const hashPassword = saltHash.generateSaltHash(password);
