@@ -8,6 +8,7 @@ const app = express();
 // const path = require('path');
 // const https = require('https');
 // const fs = require('fs');
+const port = process.env.PORT || 3000;
 
 //Sketchy work around for dev build, fix for production
 
@@ -28,7 +29,7 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Server is running on port 3000');
 });
 
