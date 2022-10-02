@@ -43,7 +43,7 @@ https
     },
     app
   )
-  .listen(3001, () => {
+  .listen(3000, () => {
     wxservice.getData();
   });
 
