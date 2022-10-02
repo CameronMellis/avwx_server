@@ -5,7 +5,7 @@ const wxservice = require('./wxservice');
 const cron = require('node-cron');
 const userRouter = require('./routes/server_routes');
 const bodyParser = require('body-parser');
-// const path = require('path');
+const path = require('path');
 // const https = require('https');
 // const fs = require('fs');
 const port = process.env.PORT || 3000;
@@ -22,8 +22,8 @@ app.use(userRouter);
 
 // add middleware for static server
 
-// app.use(express.static(path.join(__dirname, 'dist')));
-// console.log(path.join(__dirname, 'dist'));
+app.use(express.static(path.join(__dirname, 'dist')));
+console.log(path.join(__dirname, 'dist'));
 
 app.get('/', (req, res) => {
   res.send('Hello World');
