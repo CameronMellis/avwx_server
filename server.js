@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-// const cors = require('cors');
+const cors = require('cors');
 const wxservice = require('./wxservice');
 const cron = require('node-cron');
 const userRouter = require('./routes/server_routes');
@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 //Sketchy work around for dev build, fix for production
 
-// app.use(cors());
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
