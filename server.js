@@ -6,8 +6,8 @@ const cron = require('node-cron');
 const userRouter = require('./routes/server_routes');
 const bodyParser = require('body-parser');
 const path = require('path');
-// const https = require('https');
-// const fs = require('fs');
+const https = require('https');
+const fs = require('fs');
 const port = process.env.PORT || 3000;
 
 //Sketchy work around for dev build, fix for production
