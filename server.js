@@ -38,8 +38,8 @@ https
     // Provide the private and public key to the server by reading each
     // file's content with the readFileSync() method.
     {
-      key: fs.readFileSync('key.pem'),
-      cert: fs.readFileSync('cert.pem'),
+      key: process.env.KEY_PEM || fs.readFileSync('key.pem'),
+      cert: process.env.CERT_PEM || fs.readFileSync('cert.pem'),
     },
     app
   )
