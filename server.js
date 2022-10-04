@@ -22,8 +22,8 @@ app.use(userRouter);
 
 // add middleware for static server
 
-app.use('/', express.static(path.join(__dirname, 'dist')));
-console.log(path.join(__dirname, 'dist'));
+app.use('/', express.static(path.join(__dirname, 'dist2')));
+console.log(path.join(__dirname, 'dist2'));
 
 // app.get('/', (req, res) => {
 //   res.send('Hello World');
