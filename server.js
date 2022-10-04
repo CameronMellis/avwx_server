@@ -22,7 +22,7 @@ app.use(userRouter);
 
 // add middleware for static server
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static("/",path.join(__dirname, 'dist')));
 console.log(path.join(__dirname, 'dist'));
 
 // app.get('/', (req, res) => {
