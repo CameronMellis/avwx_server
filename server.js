@@ -39,7 +39,7 @@ https
     },
     app
   )
-  .listen(3000, () => {
+  .listen(port, () => {
     wxservice.getData();
   });
 
