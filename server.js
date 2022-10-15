@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const https = require('https');
 const fs = require('fs');
-const port = process.env.PORT || 3000;
+const port = process.env.DB_PORT || 3000;
 
 //Sketchy work around for dev build, fix for production
 
@@ -26,7 +26,7 @@ app.use('/', express.static(path.join(__dirname, 'dist')));
 console.log(path.join(__dirname, 'dist'));
 
 app.listen(port, () => {
-  console.log('Server is running on port 3000');
+  console.log('Server is running on port 3000 || 5432');
 });
 
 https
